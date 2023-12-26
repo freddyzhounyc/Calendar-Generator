@@ -1,0 +1,561 @@
+import java.util.Scanner;
+
+public class FreddyZhou_Calendar_P1 {
+    public static void main(String[] args) {
+        Scanner cin = new Scanner(System.in);
+
+        System.out.print("Enter a year: ");
+        int year = cin.nextInt();
+
+        int dayOfWeek = (1 + ((26*(13+1))/10) + ((year-1) % 100) + (((year-1)%100)/4) + (((year-1)/100)/4) + (5 * ((year-1)/100))) % 7;
+
+        System.out.print("\n");
+        System.out.println("January " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        int dateCounter = 1;
+        int dateEnd = 0;
+        boolean extraLine = false;
+        for (int a = 1; a <= dayOfWeek; a++){
+            System.out.print("\t");
+        }
+        if (dayOfWeek == 6 || dayOfWeek == 5){
+            extraLine = true;
+        }
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 31){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("February " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        boolean leapYear = year % 4 == 0;
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (leapYear){
+                        if (dateCounter <= 29){
+                            if (!extraLine) {
+                                if (i == 5) {
+                                    dateEnd++;
+                                }
+                            } else{
+                                if (i == 6){
+                                    dateEnd++;
+                                }
+                            }
+                            System.out.print(dateCounter + "\t");
+                        }
+                    } else {
+                        if (dateCounter <= 28) {
+                            if (!extraLine) {
+                                if (i == 5) {
+                                    dateEnd++;
+                                }
+                            } else{
+                                if (i == 6){
+                                    dateEnd++;
+                                }
+                            }
+                            System.out.print(dateCounter + "\t");
+                        }
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("March " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        if (dayOfWeek == 6 || dayOfWeek == 5){
+            extraLine = true;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 31){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("April " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        if (dayOfWeek == 6){
+            extraLine = true;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 30){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("May " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        if (dayOfWeek == 6 || dayOfWeek == 5){
+            extraLine = true;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 31){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("June " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        if (dayOfWeek == 6){
+            extraLine = true;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 30){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("July " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        if (dayOfWeek == 6 || dayOfWeek == 5){
+            extraLine = true;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 31){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("August " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        if (dayOfWeek == 6 || dayOfWeek == 5){
+            extraLine = true;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 31){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("September " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        if (dayOfWeek == 6){
+            extraLine = true;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 30){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("October " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        if (dayOfWeek == 6 || dayOfWeek == 5){
+            extraLine = true;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 31){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("November " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        if (dayOfWeek == 6){
+            extraLine = true;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 30){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+
+        System.out.println("December " + year);
+        System.out.println("Sat" + "\t" + "Sun" + "\t" + "Mon" + "\t" + "Tue" + "\t" + "Wed" + "\t" + "Thu" + "\t" + "Fri");
+
+        dateCounter = 1;
+        extraLine = false;
+        if (dateEnd != 7) {
+            dayOfWeek = dateEnd;
+        } else{
+            dayOfWeek = 0;
+            dateEnd = 0;
+        }
+        if (dayOfWeek == 6 || dayOfWeek == 5){
+            extraLine = true;
+        }
+        for (int a = 1; a <= dateEnd; a++){
+            System.out.print("\t");
+        }
+        dateEnd = 0;
+        for (int i = 1; i <= 6; i++){
+            if (i == 1) {
+                for (int a = dayOfWeek; a < 7; dateCounter++, a++) {
+                    System.out.print(dateCounter + "\t");
+                }
+            } else{
+                for (int a = 0; a < 7; dateCounter++, a++) {
+                    if (dateCounter <= 31){
+                        if (!extraLine) {
+                            if (i == 5) {
+                                dateEnd++;
+                            }
+                        } else{
+                            if (i == 6){
+                                dateEnd++;
+                            }
+                        }
+                        System.out.print(dateCounter + "\t");
+                    }
+                }
+            }
+            System.out.print("\n");
+        }
+        if (extraLine){
+            System.out.print("\n");
+        }
+    }
+}
